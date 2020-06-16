@@ -1,0 +1,50 @@
+{%extends "layout.html"%}
+{%block head%}
+
+<header>
+  <div class = "row">
+    <div class = "col-md">
+      <a href="/">Home</a>
+    </div>
+    <div class = "col-md">
+      <a href="#">about</a>
+    </div>
+    <div class = "col-md">
+      <a href="/perk">perk</a>
+    </div>
+    <div style="background-color:#d46013;" class = "col-md">
+      <a href="/jobs">jobs</a>
+    </div>
+    <div class = "col-md">
+      <a href="/apply">apply</a>
+    </div>
+  </div>
+</header>
+
+{%endblock%}
+
+{%block body%}
+<div class="">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">{{count}} Jobs found</th>
+        <th scope="col">title</th>
+        <th scope="col">deadline</th>
+        <th scope="col">description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for row in data%}
+      <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.title}}</td>
+        <td>{{row.deadline}}</td>
+        <td>{{row.description}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+</div>
+{%endblock%}

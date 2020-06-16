@@ -1,0 +1,18 @@
+{%extends "layout.html"%}
+{%block head%}
+
+<header>
+  <div class = "row">
+    <div class = "col-md-6">
+      <a href="/logout">logout</a>
+    </div>
+    <div class = "col-md-6">
+      <a href="/search">search</a>
+    </div>
+  </div>
+</header>
+
+{%endblock%}
+{%block body%}
+  <h1>HI! {{name}} you are logged in. now you can search for book!!</h1>
+{%endblock%}

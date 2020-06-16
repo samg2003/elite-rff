@@ -1,0 +1,7 @@
+flask
+flask_session
+sqlalchemy
+requests
+gunicorn
+psycopg2-binary==2.8.5
+jinja2

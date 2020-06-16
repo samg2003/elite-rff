@@ -1,0 +1,45 @@
+{%extends "layout.html"%}
+{%block head%}
+
+<header>
+  <div class = "row">
+    <div class = "col-md">
+      <a href="/">Home</a>
+    </div>
+    {%if login == 0%}
+    <div class = "col-md">
+    {%elif login != 0%}
+    <div style="background-color:#d46013;" class = "col-md">
+    {%endif%}
+      <a href="/login">login</a>
+    </div>
+    {%if login != 0%}
+    <div class = "col-md">
+    {%elif login == 0%}
+    <div style="background-color:#d46013;" class = "col-md">
+    {%endif%}
+      <a href="/register">register</a>
+    </div>
+</header>
+
+{%endblock%}
+{%block body%}
+  <div>
+  {%if login == 0%}
+  <form action="/register" method = "post">
+  {%elif login != 0%}
+  <form action="/login" method = "post">
+  {%endif%}
+      <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" class="form-control" id="username" aria-describedby="UsernameHelp" placeholder="Username">
+          <small id="UsernameHelp" class="form-text text-muted">{{message}}</small>
+      </div>
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+{%endblock%}

@@ -1,0 +1,52 @@
+{%extends "layout.html"%}
+{%block head%}
+
+<header>
+  <div class = "row">
+    <div class = "col-md">
+      <a href="/">Home</a>
+    </div>
+    <div  class = "col-md">
+      <a href="/apply">Apply</a>
+    </div>
+    <div style="background-color:#d46013;" class = "col-md">
+      <a href="/status">Status</a>
+    </div>
+    <div class = "col-md">
+      <a href="/logout">logout</a>
+    </div>
+</header>
+
+{%endblock%}
+
+{%block body%}
+<div class="">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">App. No.({{count}} past Applications found)</th>
+        <th scope="col">title</th>
+        <th scope="col">registered email</th>
+        <th scope="col">Description link</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for row in data%}
+      <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.title}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.description}}</td>
+        {%if row.status == 0 or row.status == "0" %}
+        <td>Pending</td>
+        {%else%}
+        <td>{{row.status}}</td>
+        {%endif%}
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+</div>
+{%endblock%}
